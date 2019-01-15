@@ -1,0 +1,3 @@
+This is a stripped-down version of UNSIO - Universal Nbody Snapshot Input/Output library,
+forked from https://projets.lam.fr/projects/unsio and repackaged to simplify
+the compilation procedure.
