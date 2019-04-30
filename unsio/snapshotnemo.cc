@@ -259,7 +259,6 @@ int CSnapshotNemoIn::nextFrame(uns::UserSelection &user_select)
       assert(nsel_loc==cpt);
     }
   }
-  if (nsel_loc) ; // remove compiler warning
   if (verbose) std::cerr << "CSnapshotNemoIn::nextFrame status = " << status << "\n";
   if (status == -1) status=1;
   return status;
@@ -627,9 +626,8 @@ CSnapshotNemoOut::~CSnapshotNemoOut()
 }
 // ----------------------------------------------------------------------------
 //
-int CSnapshotNemoOut::setHeader(void * h)
+int CSnapshotNemoOut::setHeader(void * /*h*/)
 {
-  if (h) {;} // remove compiler warning
   return 0;
 }
 // ----------------------------------------------------------------------------

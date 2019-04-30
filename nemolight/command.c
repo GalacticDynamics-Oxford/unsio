@@ -13,6 +13,7 @@
 #include <extstring.h>
 #include <table.h>
 #include <command.h>
+#include <ctype.h>
 #ifdef HAVE_LIBREADLINE
 #include <readline/readline.h>
 #include <readline/history.h>

@@ -227,7 +227,6 @@ template <class T> int CSnapshotGadgetIn::readCompData(T ** data, const int * in
     }
   }  
   int len2 = readFRecord();
-  if (len2==len1) ; // remove warning....
   assert(len2==len1 && in.good() && len1==bytes_counter);
   return 1;
 }
@@ -253,7 +252,6 @@ template <class T> int CSnapshotGadgetIn::readGasStarsUnknownArray(T ** data, in
   assert((idx+(*nguess)*header.npart[4])<=(*nguess)*(header.npartTotal[0]+header.npartTotal[4]));
   readData((char *) &ptr[idx], sizeof(float),(*nguess)*header.npart[4]);
   int len2 = readFRecord();
-  if (len2==len1) ; // remove warning....
   assert(in.good() && len2==len1 && len1==bytes_counter);
   return 1;
 }
@@ -272,7 +270,6 @@ template <class T> int CSnapshotGadgetIn::readOneArray(T ** data, const int comp
   assert((idx+header.npart[compid])<=header.npartTotal[compid]);
   readData((char *) &ptr[idx], sizeof(float),header.npart[compid] );
   int len2 = readFRecord();
-  if (len2==len1) ; // remove warning....
   assert(in.good() && len1==len2 && len1==bytes_counter);
   return 1;
 }
@@ -401,7 +398,6 @@ int CSnapshotGadgetIn::read(uns::UserSelection &user_select)
           } // for k
           if (ntotmasses > 0) {  // different masses
             len2 = readFRecord(); // we must read from disk
-            if (len2==len1) ; // remove warning....
             assert(in.good() && len2==len1 && len1==bytes_counter);
           }
           if (version==1) stop=true; // we stop reading for gadget1

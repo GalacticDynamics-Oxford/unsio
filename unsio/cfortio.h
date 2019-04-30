@@ -37,7 +37,6 @@ public:
       int len1=readFRecord(abort);
       readData(ptr,1,len1);
       int len2=readFRecord(abort);
-      if (len2==len1) ; // remove warning....
       if (abort)
         assert(good() && len1==len2);
       return len1;
@@ -85,7 +84,6 @@ public:
         int len1 = readFRecord();
         in.seekg(len1,std::ios::cur);
         int len2 = readFRecord();
-        if (len2==len1) ; // remove warning....
         assert(in.good() && len1==len2);
       }
     }

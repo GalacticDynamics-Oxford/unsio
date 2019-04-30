@@ -146,7 +146,6 @@ int CAmr::readHeader()
   len2=amr.readFRecord();
   assert(amr.good() && len1==len2);
 
-  if (len2==len1) ; // remove warning....
   return 1;
 }
 // ============================================================================

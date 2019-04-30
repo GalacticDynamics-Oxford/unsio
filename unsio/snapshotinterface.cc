@@ -121,7 +121,9 @@ namespace uns {
     req_bits = 0;
     if (verbose) std::cerr << "BITS ="<<bits<<"\n";
     if (bits=="") { // all the bits
-      req_bits = (unsigned int) (( 1 << 31 )<<2)-1;
+      //req_bits = (unsigned int) (( 1 << 31 )<<2)-1;
+      // I don't understand what the above statement is supposed to do, but it is incorrect code
+      req_bits = (unsigned int)(-1);  // instead replaced by this: set all bits to 1
       //std::cerr << "Reqbits = "<< req_bits<<"\n";
     } 
     else {    

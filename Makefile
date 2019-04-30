@@ -1,6 +1,9 @@
 ifeq ($(origin CC),default)
 CC = gcc
 endif
+ifeq ($(origin CXX),default)
+CXX = g++
+endif
 SRCN = $(wildcard nemolight/*.c)
 OBJN = $(patsubst nemolight/%.c,nemolight/obj/%.o,$(SRCN))
 SRCU = $(wildcard unsio/*.cc)
@@ -15,7 +18,7 @@ nemolight/obj/%.o: nemolight/%.c
 
 unsio/obj/%.o: unsio/%.cc
 	@mkdir -p unsio/obj
-	$(CC) -c -o $@ $< $(CFLAGS)
+	$(CXX) -c -o $@ $< $(CFLAGS)
 
 libnemo.a: $(OBJN)
 	ar cr $@ $^

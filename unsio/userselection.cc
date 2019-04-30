@@ -189,7 +189,6 @@ int UserSelection::isRange(const std::string comp)
     }
     assert(last>=first);
     int npart=last-first+1; // #part
-    if (npart) ; // remove compiler warning
     assert(npart<=nbody);
     fillIndexes(comp,first,last,step,pos); // fill indexes array
     pos++;
@@ -238,7 +237,6 @@ int UserSelection::isComponent(const std::string comp)
       last =(*crv)[icrv].last;
       assert(last>=first);
       int npart=last-first+1; // #part
-      if (npart) ; // remove compiler warning
       assert(npart<=nbody);
       status=0;
       fillIndexes(comp,first,last,step,pos); // fill indexes array

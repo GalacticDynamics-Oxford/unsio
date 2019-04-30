@@ -227,7 +227,6 @@ typedef struct particle_data_lite
     in.seekg(len1,std::ios::cur);
     int len2 = readFRecord();
     if (verbose) std::cerr << "skipping block name ["<<block_name<<"]\n";
-    if (len2==len1) ; // remove warning....
     assert(len1==len2 && in.good());
     if (block_name == "AGE" || block_name == "Z" ) {
       //std::cerr << "len1 = " << len1 << "\nlen2 = " << len2 << "\n";
