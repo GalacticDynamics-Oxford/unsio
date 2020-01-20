@@ -310,7 +310,7 @@ bool CSnapshotNemoIn::getData(const std::string name,int *n,float **data)
   case uns::Acc :
     *data = getAcc();
     *n    = getNSel();
-    break;        
+    break; 
   case uns::Rho :
     *data = getRho();
     *n    = getNSel();
@@ -318,10 +318,11 @@ bool CSnapshotNemoIn::getData(const std::string name,int *n,float **data)
   case uns::Pot :
     *data = getPot();
     *n    = getNSel();
-    break;    
+    break;
   case uns::Eps :
     *data = getEps();
     *n    = getNSel();
+    break;
   case uns::Aux :
   case uns::Hsml :
     *data = getAux();
