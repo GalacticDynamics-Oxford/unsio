@@ -542,7 +542,7 @@ void initparam(string argv[], string defv[])
 	      free(keys[j].val);
 	      keys[j].val = scopy(parvalue(argv[i]));        /* get value */
 	      keys[j].count++;
-	    } else if (j=set_indexed(name,&idx)) {       /* enter indexed keywords */
+	    } else if ((j=set_indexed(name,&idx))) {       /* enter indexed keywords */
 	      // process this indexed keyword
 #if 1
 	      addindexed(j,argv[i],idx);
@@ -731,7 +731,7 @@ void initparam(string argv[], string defv[])
 local void initparam_out()
 {
   int nout = -1;
-  if (outdefv && *outdefv)
+  if (*outdefv)
      nout = xstrlen(outdefv, sizeof(string));     /* count # params + progname */  
   /*  
    * here comes 
@@ -1454,9 +1454,9 @@ bool updparam(string name)
  *  GETPARAMSTAT
  */
 
-int getparamstat(string name) {
+/*int getparamstat(string name) {
   error("getparamstat is a ZENO feature, not implemented in NEMO yet");
-}
+}*/
 
 
 
@@ -2207,7 +2207,7 @@ local int set_indexed(string name, int *idx)
   cp = &key[strlen(key)-1];
   if (!isdigit(*cp)) return 0;      /* definitely not indexed */
   while (isdigit(*cp))              /* work backwords through all digits */
-    *cp--;
+    cp--;
   cp++;                           
   strcpy(keyidx,cp);
   *idx = atoi(keyidx);
